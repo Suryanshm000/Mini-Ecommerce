@@ -1,0 +1,21 @@
+{% extends 'firstapp/base.html' %}
+
+{% block content %}
+
+    <a href="{% url 'firstapp:add_product' %}"><i>Add Product</i></a>
+    <hr>
+
+    {% for product in products %}
+        <div class="product">
+            <img src="{{ product.image.url }}" alt="{{ product.name }}" height="200px" width="200px">
+            <h3>{{ product.name }}</h3>
+            <p>{{ product.description }}</p>
+            <p>Price: ${{ product.price }}</p>
+            <a href="{% url 'firstapp:edit_product' product.id %}">Edit</a>
+            <br>
+            <a href="{% url 'firstapp:delete_product' product.id %}">Delete</a>
+        </div>
+        <hr>
+    {% endfor %}
+
+{% endblock %}

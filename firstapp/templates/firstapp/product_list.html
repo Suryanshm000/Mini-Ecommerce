@@ -1,0 +1,20 @@
+{% extends 'firstapp/base.html' %}
+
+{% block content %}
+
+    {% for product in products %}
+        <div class="product">
+            <img src="{{ product.image }}" alt="{{ product.name }}" height="200px" width="200px">
+            <strong>{{ product.name }}</strong>
+            <!-- <p>{{ product.description }}</p> -->
+            <p>Price: ${{ product.price }}</p>
+            <a href="{% url 'firstapp:product_detail' product.id %}">View in detail</a>
+            <br>
+            <a href="{% url 'firstapp:add_to_cart' product.id %}">Add to Cart</a>
+        </div>
+        <hr>
+    {% endfor %}
+
+{% endblock %}
+
+

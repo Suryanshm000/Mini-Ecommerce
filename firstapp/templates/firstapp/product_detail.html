@@ -1,0 +1,15 @@
+{% extends 'firstapp/base.html' %}
+
+{% block content %}
+    
+    <a href="{% url 'firstapp:product_list' %}">Back</a><hr>
+
+    <div>
+        <img src="{{ product.image.url }}" alt="{{ product.name }}" height="200px" width="200px">
+        <h3>{{ product.name }}</h3>
+        <p>{{ product.description }}</p>
+        <p>Price: ${{ product.price }}</p>
+        <a href="{% url 'firstapp:add_to_cart' product.id %}">Add to Cart</a>
+    </div>
+
+{% endblock %}
